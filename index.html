@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="/node_modules/vue/dist/vue.min.js"></script>
     <script src="/node_modules/vue-router/dist/vue-router.min.js"></script>
     <script src="/node_modules/vue-resource/dist/vue-resource.min.js"></script>
 </head>
 <body>
-<div id="app">
+<div id="app" class="container">
     <h1>Hello world!</h1>
-    <p>
-        <a v-link="{path: '/bar'}">Go to Bar</a>
-        <a v-link="{path: '/foo'}">Go to Foo</a>
-        <a v-link="{path: '/todo'}">Go to Todo</a>
+    <p class="row">
+        <a v-link="{path: '/bar'}" class="col-lg-4">Go to Bar</a>
+        <a v-link="{path: '/foo'}" class="col-lg-4">Go to Foo</a>
+        <a v-link="{path: '/todo'}" class="col-lg-4">Go to Todo</a>
     </p>
     <router-view></router-view>
 </div>
 
 <script type="text/x-template" id="todo">
-    <input v-model="newTodo" @keyup.enter="addTodo"/>
-    <ul>
-        <li v-for="item in todos">
-            <span>{{item.text}}</span>
-            <button @click="removeTodo($index)">X</button>
-        </li>
-    </ul>
+    <form>
+        <div class="form-group">
+            <!--<label for="add">Add Todo</label>-->
+            <input v-model="newTodo" @keyup.enter="addTodo" placeholder="Add something to do" id="add" class="form-control"/>
+        </div>
+        <ol>
+            <li v-for="item in todos" class="form-group">
+                <span>{{item.text}}</span>
+                <a @click="removeTodo($index)" class="btn btn-link">X</a>
+            </li>
+        </ol>
+    </form>
 </script>
 
 <script>
+    //定义组件
     var Foo = {template: '<p>This is Foo</p>'};
-    var Bar = {template: '<p>This is Bar</p>'};
+    var Bar = Vue.extend({template: '<p>This is Bar</p>'});
     var Todo = {
         template: '#todo',
         data: function () {
@@ -42,6 +49,7 @@
         },
         methods: {
             addTodo: function () {
+                console.log('add: ' + this.todos);
                 var text = this.newTodo.trim();
                 if (text) {
                     this.todos.push({text: text});
@@ -49,12 +57,15 @@
                 }
             },
             removeTodo: function (index) {
+                console.log('remove: ' + this.todos);
                 this.todos.splice(index, 1);
             }
         }
     };
+    //定义路由器所需的根组件
     var App = {};
 
+    //创建路由实例,定义路由规则
     var router = new VueRouter();
     router.map({
         '/foo': {
@@ -68,6 +79,7 @@
         }
     });
 
+    //启动路由
     router.start(App, '#app');
 </script>
 </body>
