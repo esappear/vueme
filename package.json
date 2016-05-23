@@ -10,7 +10,10 @@
   "author": "esappear",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
-    "vue": "^1.0.24"
+    "vue": "^1.0.24",
+    "vue-resource": "^0.7.0",
+    "vue-router": "^0.7.13"
   }
 }

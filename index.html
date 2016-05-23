@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <title>Hello World</title>
     <script src="/node_modules/vue/dist/vue.min.js"></script>
+    <script src="/node_modules/vue-router/dist/vue-router.min.js"></script>
+    <script src="/node_modules/vue-resource/dist/vue-resource.min.js"></script>
 </head>
 <body>
 <div id="app">
+    <h1>Hello world!</h1>
+    <p>
+        <a v-link="{path: '/bar'}">Go to Bar</a>
+        <a v-link="{path: '/foo'}">Go to Foo</a>
+        <a v-link="{path: '/todo'}">Go to Todo</a>
+    </p>
+    <router-view></router-view>
+</div>
+
+<script type="text/x-template" id="todo">
     <input v-model="newTodo" @keyup.enter="addTodo"/>
     <ul>
         <li v-for="item in todos">
@@ -14,19 +26,24 @@
             <button @click="removeTodo($index)">X</button>
         </li>
     </ul>
-</div>
+</script>
+
 <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            todos: [
-                {text: 'Learn Vue.js'}
-            ]
+    var Foo = {template: '<p>This is Foo</p>'};
+    var Bar = {template: '<p>This is Bar</p>'};
+    var Todo = {
+        template: '#todo',
+        data: function () {
+            return {
+                todos: [
+                    {text: 'Learn Vue.js'}
+                ]
+            }
         },
         methods: {
             addTodo: function () {
                 var text = this.newTodo.trim();
-                if(text){
+                if (text) {
                     this.todos.push({text: text});
                     this.newTodo = '';
                 }
@@ -35,7 +52,23 @@
                 this.todos.splice(index, 1);
             }
         }
-    })
+    };
+    var App = {};
+
+    var router = new VueRouter();
+    router.map({
+        '/foo': {
+            component: Foo
+        },
+        '/bar': {
+            component: Bar
+        },
+        '/todo': {
+            component: Todo
+        }
+    });
+
+    router.start(App, '#app');
 </script>
 </body>
 </html>
