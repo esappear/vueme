@@ -12,9 +12,9 @@
 <div id="app" class="container">
     <h1>Hello world!</h1>
     <p class="row">
-        <a v-link="{path: '/bar'}" class="col-lg-4">Go to Bar</a>
-        <a v-link="{path: '/foo'}" class="col-lg-4">Go to Foo</a>
-        <a v-link="{path: '/todo'}" class="col-lg-4">Go to Todo</a>
+        <a v-link="'bar'" class="col-lg-4">Go to Bar</a>
+        <a v-link="'foo'" class="col-lg-4">Go to Foo</a>
+        <a v-link="'todo'" class="col-lg-4">Go to Todo</a>
     </p>
     <router-view></router-view>
 </div>
@@ -69,12 +69,15 @@
     var router = new VueRouter();
     router.map({
         '/foo': {
+            name: 'foo',
             component: Foo
         },
         '/bar': {
+            name: 'bar',
             component: Bar
         },
         '/todo': {
+            name: 'todo',
             component: Todo
         }
     });
