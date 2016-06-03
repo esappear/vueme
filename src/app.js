@@ -5,11 +5,12 @@
 // var VueRouter = require('vue-router');
 var Todo = require('./components/todo.vue');
 var Bar = require('./components/bar.vue');
+var App = require('./App.vue');
 
 Vue.use(VueRouter);
 
 //创建路由实例,定义路由规则
-var router = new VueRouter();
+var router = new VueRouter({hashbang: false});
 router.map({
     '/bar': {
         name: 'bar',
@@ -21,7 +22,10 @@ router.map({
     }
 });
 
-var App = {};
+router.redirect({
+    '*': '/todo'
+});
+
 
 router.start(App, '#app');
 
