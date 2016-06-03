@@ -1,8 +1,8 @@
 /**
  * Created by qingcheng on 16/5/24.
  */
-var Vue = require('vue');
-var VueRouter = require('vue-router');
+// var Vue = require('vue');
+// var VueRouter = require('vue-router');
 var Todo = require('./components/todo.vue');
 var Bar = require('./components/bar.vue');
 
