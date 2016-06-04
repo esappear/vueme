@@ -19,29 +19,8 @@
 </style>
 
 <script>
-    //    export default{
-    //        data(){
-    //            return {
-    //                todos: [
-    //                    {text: 'Learn Vue.js'}
-    //                ]
-    //            }
-    //        },
-    //        methods: {
-    //            addTodo: function () {
-    //                var text = this.newTodo.trim();
-    //                if (text) {
-    //                    this.todos.push({text: text});
-    //                    this.newTodo = '';
-    //                }
-    //            },
-    //            removeTodo: function (index) {
-    //                this.todos.splice(index, 1);
-    //            }
-    //        }
-    //    }
-    module.exports = {
-        data: function () {
+    export default {
+        data () {
             return {
                 newTodo: '',
                 todos: [

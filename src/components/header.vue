@@ -16,8 +16,8 @@
 </style>
 <script>
 
-    module.exports = {
-        data: function (){
+    export default {
+        data (){
             return {
                 msg: 'hello vue',
                 links :[

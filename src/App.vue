@@ -10,8 +10,8 @@
 </style>
 <script>
     import Header from './components/header.vue'
-    module.exports = {
-        data: function () {
+    export default {
+        data (){
             return {
                 msg: 'Hello Vue'
             }
@@ -19,5 +19,5 @@
         components: {
             'header-component': Header
         }
-    };
+    }
 </script>

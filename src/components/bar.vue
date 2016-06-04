@@ -5,7 +5,7 @@
 
 </style>
 <script>
-    module.exports = {
+    export default {
 
     }
 </script>
