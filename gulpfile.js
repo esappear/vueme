@@ -34,7 +34,8 @@ function getConfig(opt) {
     var config = {
         module: {
             loaders: [
-                {test: /\.vue$/, loader: 'vue'}
+                {test: /\.vue$/, loader: 'vue'},
+                {test: /\.less$/, loader: "style!css!less"}
             ]
         },
         devtool: 'source-map'

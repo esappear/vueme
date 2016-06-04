@@ -3,7 +3,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="glyphicon glyphicon-time"></i>
-                {{msg}}
+                <span>{{msg}}</span>
             </a>
             <ul class="nav navbar-nav">
                 <li v-for="link in links"><a v-link="link.name">{{link.txt}}</a></li>
@@ -11,15 +11,20 @@
         </div>
     </nav>
 </template>
-<style>
-
+<style lang="less">
+    .navbar-brand {
+        span {
+            color: #00b3ee;
+            display: inline-block;
+        }
+    }
 </style>
 <script>
 
     export default {
         data (){
             return {
-                msg: 'hello vue',
+                msg: 'Hello Vue',
                 links :[
                     {name: 'bar', txt: 'Go to Bar'},
                     {name: 'todo', txt: 'Go to Todo'}
