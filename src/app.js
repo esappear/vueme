@@ -4,7 +4,8 @@
 // var Vue = require('vue');
 // var VueRouter = require('vue-router');
 var Todo = require('./components/todo.vue');
-var Bar = require('./components/bar.vue');
+var TimeEntries = require('./components/time-entries.vue');
+var LogTime = require('./components/log-time.vue');
 var App = require('./App.vue');
 
 Vue.use(VueRouter);
@@ -12,12 +13,15 @@ Vue.use(VueRouter);
 //创建路由实例,定义路由规则
 var router = new VueRouter({hashbang: false});
 router.map({
-    '/bar': {
-        name: 'bar',
-        component: Bar
+    '/time-entries': {
+        component: TimeEntries,
+        subRoutes: {
+            '/log-time': {
+                component: LogTime
+            }
+        }
     },
     '/todo': {
-        name: 'todo',
         component: Todo
     }
 });

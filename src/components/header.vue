@@ -26,7 +26,7 @@
             return {
                 msg: 'Hello Vue',
                 links :[
-                    {name: 'bar', txt: 'Go to Bar'},
+                    {name: 'time-entries', txt: 'Go to TimeEntries'},
                     {name: 'todo', txt: 'Go to Todo'}
                 ]
             }
