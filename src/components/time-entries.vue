@@ -18,7 +18,7 @@
             <hr>
 
             <!--//下一级视图-->
-            <router-view></router-view>
+            <router-view transition="slide-top"></router-view>
 
             <div class="time-entries">
                 <p v-if="!timeEntries.length"><strong>还没有任何任务</strong></p>
@@ -85,6 +85,19 @@
     .comment-section {
         padding: 20px;
     }
+
+    .slide-top-transition{
+        transition: all .5s ease;
+        overflow: hidden;
+        height: 230px;
+    }
+
+
+    .slide-top-enter, .slide-top-leave {
+        height: 0;
+        opacity: 0;
+    }
+
 </style>
 <script>
     import SideBar from './side-bar.vue'

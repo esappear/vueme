@@ -1,10 +1,6 @@
 <template>
     <nav class="navbar navbar-default">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="glyphicon glyphicon-time"></i>
-                <span>{{msg}}</span>
-            </a>
             <ul class="nav navbar-nav">
                 <li v-for="link in links" :class="{'active':$route.path == link.name}"><a @click="goLink(link, $index)">{{link.txt}}</a>
                 </li>
