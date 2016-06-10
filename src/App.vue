@@ -55,6 +55,7 @@
 <script>
     import Header from './components/header.vue'
     import Links from './services/links'
+    import qc from './services/common'
     export default {
         data (){
             return {
@@ -67,20 +68,12 @@
         },
         computed: {
             currentIndex: function () {
-                var currentPath = this.$route.path;
-                for(var i= 0, len = Links.length; i <len; i++){
-                    if(currentPath == Links[i].name){
-                        console.log('computed');
-                        return i;
-                    }
-                }
-                return 0;
+                return qc.getIndex(this.$route.path) || 0;
             }
         },
         events: {
             'linkUpdate': function (data) {
                 this.slide = this.currentIndex > data.index ? 'slide-right' : 'slide-left';
-                console.log('updated');
             }
         }
     }

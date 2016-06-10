@@ -41,6 +41,11 @@
             removeTodo: function (index) {
                 this.todos.splice(index, 1);
             }
+        },
+        route: {
+            'activate': function (transition) {
+                transition.next();
+            }
         }
     }
 </script>
