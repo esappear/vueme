@@ -6,6 +6,7 @@
 var Todo = require('./components/todo.vue');
 var TimeEntries = require('./components/time-entries.vue');
 var LogTime = require('./components/log-time.vue');
+var MobileTest = require('./components/mobile-test.vue');
 var App = require('./App.vue');
 
 Vue.use(VueRouter);
@@ -23,6 +24,9 @@ router.map({
     },
     '/todo': {
         component: Todo
+    },
+    '/mobile': {
+        component: MobileTest
     }
 });
 
