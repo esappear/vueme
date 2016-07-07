@@ -10,16 +10,17 @@
   "author": "esappear",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
-    "vue": "^1.0.24",
-    "vue-resource": "^0.7.0",
-    "vue-router": "^0.7.13",
-    "webpack": "^1.13.1",
     "gulp": "^3.9.1",
     "gulp-webpack": "^1.5.0",
     "vinyl-named": "^1.1.0",
-    "vux": "^0.1.0"
+    "vue": "^1.0.24",
+    "vue-resource": "^0.7.0",
+    "vue-router": "^0.7.13",
+    "vux": "^0.1.0",
+    "webpack": "^1.13.1"
   },
   "devDependencies": {
     "body-parser": "^1.15.1",

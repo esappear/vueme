@@ -1,6 +1,9 @@
 /**
  * Created by qingcheng on 16/5/24.
  */
+// var path = require('path')
+// var projectRoot = path.resolve(__dirname, '../')
+
 module.exports = {
     entry: './src/app.js',
     output: {
@@ -16,6 +19,12 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: "style!css!less"
+            // },
+            // {
+            //     test: /\.js$/,
+            //     loader: 'babel',
+            //     include: projectRoot,
+            //     exclude: /node_modules/
             }
         ]
     }
