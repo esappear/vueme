@@ -12,7 +12,6 @@
                 <a @click="removeTodo($index)" class="btn btn-link">X</a>
             </li>
         </ul>
-        <button type="submit" @click="submitTodo" class="btn btn-default">提交</button>
     </div>
 </template>
 
@@ -58,20 +57,25 @@
             addTodo: function () {
                 var text = this.newTodo.trim();
                 if (text) {
-                    this.todos.push({text: text, checked: !1});
+                    var item = {text: text, checked: !1};
+                    this.todos.push(item);
                     this.newTodo = '';
+                    $requests.todoReq.save({}, item, function (event) {
+                        alert('添加成功了~')
+                    })
                 }
             },
             removeTodo: function (index) {
                 this.todos.splice(index, 1);
+                $requests.todoReq.remove({index: index}, function (event) {
+                    alert('删除成功了~')
+                })
             },
             toggleTodo: function ($event, item) {
                 $event.preventDefault();
                 item.checked = !item.checked;
-            },
-            submitTodo: function () {
-                $requests.todoReq.save({}, {todos: this.todos}, function (event) {
-                    alert('上传成功了~')
+                $requests.todoReq.update({}, item, function (event) {
+                    alert('更新成功了~')
                 })
             }
         },
