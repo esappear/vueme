@@ -4,7 +4,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var todos = [{text: '吃饭'}, {text: '睡觉'}, {text: '打豆豆'}];
+var todos = [{text: '吃饭', checked: !0}, {text: '睡觉'}, {text: '打豆豆'}];
 
 app.use(express.static(__dirname + ''));
 app.use(bodyParser.json());
