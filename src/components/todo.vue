@@ -25,10 +25,11 @@
             position: relative;
             &.z-checked{
                 .icn {
-                    background-color: #337ab7;
+                    background-color: rgba(0, 0, 0, .1);
+                    border: solid 1px rgba(0, 0, 0, .1);
                 }
                 span {
-                    color: grey;
+                    color: rgba(0,0,0,.2);
                 }
              }
         }
@@ -61,21 +62,21 @@
                     this.todos.push(item);
                     this.newTodo = '';
                     $requests.todoReq.save({}, item, function (event) {
-                        alert('添加成功了~')
+//                        alert('添加成功了~')
                     })
                 }
             },
             removeTodo: function (index) {
                 this.todos.splice(index, 1);
                 $requests.todoReq.remove({index: index}, function (event) {
-                    alert('删除成功了~')
+//                    alert('删除成功了~')
                 })
             },
             toggleTodo: function ($event, item) {
                 $event.preventDefault();
                 item.checked = !item.checked;
                 $requests.todoReq.update({}, item, function (event) {
-                    alert('更新成功了~')
+//                    alert('更新成功了~')
                 })
             }
         },
