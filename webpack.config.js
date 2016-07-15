@@ -1,13 +1,17 @@
 /**
  * Created by qingcheng on 16/5/24.
  */
-// var path = require('path')
+var path = require('path')
 // var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+       app: path.resolve(__dirname, 'src/app.js')
+    },
     output: {
         path: './static/js',
+        //公共资源的获取路径,包括懒加载生成的文件
+        publicPath: '/static/js/',
         filename: 'app.bundle.js'
     },
     module: {

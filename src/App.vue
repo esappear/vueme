@@ -1,8 +1,9 @@
 <template>
-    <!--html5有默认的header,直接header组件会失效-->
-    <header-component></header-component>
-    <div class="container">
-        <router-view :transition="slide"></router-view>
+    <div>
+        <header-component></header-component>
+        <div class="container">
+            <router-view :transition="slide"></router-view>
+        </div>
     </div>
 </template>
 <style>

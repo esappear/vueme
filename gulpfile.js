@@ -32,6 +32,10 @@ gulp.task('watch', function () {
  */
 function getConfig(opt) {
     var config = {
+        output: {
+            //公共资源的获取路径,包括懒加载生成的文件
+            publicPath: 'dist/'
+        },
         module: {
             loaders: [
                 {test: /\.vue$/, loader: 'vue'},

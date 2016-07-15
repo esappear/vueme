@@ -4,10 +4,10 @@
 var Vue = require('vue');
 var VueRouter = require('vue-router');
 var VueResource = require('vue-resource');
-var Todo = require('./components/todo.vue');
-var TimeEntries = require('./components/time-entries.vue');
-var LogTime = require('./components/log-time.vue');
-var MobileTest = require('./components/mobile-test.vue');
+// var Todo = require('./components/todo.vue');
+// var TimeEntries = require('./components/time-entries.vue');
+// var LogTime = require('./components/log-time.vue');
+// var MobileTest = require('./components/mobile-test.vue');
 var App = require('./App.vue');
 
 Vue.use(VueRouter);
@@ -17,18 +17,26 @@ Vue.use(VueResource);
 var router = new VueRouter();
 router.map({
     '/time-entries': {
-        component: TimeEntries,
+        component: function (resolve) {
+            require(['./components/time-entries.vue'], resolve);
+        },
         subRoutes: {
             '/log-time': {
-                component: LogTime
+                component: function (resolve) {
+                    require(['./components/log-time.vue'], resolve)
+                }
             }
         }
     },
     '/todo': {
-        component: Todo
+        component: function (resolve) {
+            require(['./components/todo.vue'], resolve);
+        }
     },
     '/mobile': {
-        component: MobileTest
+        component: function (resolve) {
+            require(['./components/mobile-test.vue'], resolve);
+        }
     }
 });
 
