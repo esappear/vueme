@@ -46,12 +46,18 @@
 </style>
 
 <script>
-    import $requests from '../services/requests'
+//    import $requests from '../services/requests'
+    import storage from '../services/storage'
     export default {
         data () {
             return {
                 newTodo: '',
                 todos: []
+            }
+        },
+        watch: {
+            todos: function (val, oldVal) {
+                storage(val);
             }
         },
         methods: {
@@ -61,23 +67,14 @@
                     var item = {text: text, checked: !1};
                     this.todos.push(item);
                     this.newTodo = '';
-                    $requests.todoReq.save({}, item, function (event) {
-//                        alert('添加成功了~')
-                    })
                 }
             },
             removeTodo: function (index) {
                 this.todos.splice(index, 1);
-                $requests.todoReq.remove({index: index}, function (event) {
-//                    alert('删除成功了~')
-                })
             },
             toggleTodo: function ($event, item) {
                 $event.preventDefault();
                 item.checked = !item.checked;
-                $requests.todoReq.update({}, item, function (event) {
-//                    alert('更新成功了~')
-                })
             }
         },
         route: {
@@ -85,15 +82,8 @@
                 transition.next();
             }
         },
-        init (){
-            var _self = this;
-            $requests.todoReq.get().then(function (event) {
-                var data = event.data;
-                data.forEach(function (item) {
-                    item.checked = !!item.checked;
-                });
-                _self.todos = data;
-            })
+        ready (){
+            this.todos = storage();
         }
     }
 </script>
