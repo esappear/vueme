@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import VueForm from 'vue-form';
 import Mint from 'mint-ui';
+import Keen from 'keen-ui';
 import App from './App.vue';
 // var Vue = require('vue');
 // var VueRouter = require('vue-router');
@@ -21,6 +22,7 @@ import App from './App.vue';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueForm);
+Vue.use(Keen);
 Vue.use(Mint);
 
 //创建路由实例,定义路由规则
