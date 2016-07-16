@@ -55,6 +55,7 @@ app.delete('/api/todo', function (req, res) {
     res.send(res.json(todos));
 })
 
-app.listen('8080', function (req, res) {
+app.listen('8085', function (req, res) {
     console.log('App build success!');
+    console.log('http://localhost:8085');
 });

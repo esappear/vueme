@@ -4,6 +4,8 @@
 var Vue = require('vue');
 var VueRouter = require('vue-router');
 var VueResource = require('vue-resource');
+var VueForm = require('vue-form');
+var Mint = require('mint-ui');
 // var Todo = require('./components/todo.vue');
 // var TimeEntries = require('./components/time-entries.vue');
 // var LogTime = require('./components/log-time.vue');
@@ -12,6 +14,8 @@ var App = require('./App.vue');
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(VueForm);
+Vue.use(Mint);
 
 //创建路由实例,定义路由规则
 var router = new VueRouter();

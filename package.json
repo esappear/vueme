@@ -17,10 +17,12 @@
     "gulp-webpack": "^1.5.0",
     "vinyl-named": "^1.1.0",
     "vue": "^1.0.24",
+    "vue-calendar": "^0.1.5",
     "vue-resource": "^0.7.0",
     "vue-router": "^0.7.13",
     "vux": "^0.1.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "vue-form": "^0.3.1"
   },
   "devDependencies": {
     "body-parser": "^1.15.1",
