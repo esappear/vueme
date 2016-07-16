@@ -22,7 +22,6 @@
                 <p v-if="aForm.time.$touched && aForm.time.$error.time">没填时间呢</p>
             </label>
             <button>submit</button>
-            <pre>{{ aForm | json}}</pre>
         </form>
     </div>
 </template>
